@@ -1,0 +1,98 @@
+mappings:
+  profile:
+    real_name:
+      parent:
+        tag: "div"
+        class: "poetProfileDesc"
+        value_from: 
+          type: "child"
+          tag: "p"
+          index: 1
+          value_from:
+            type: "child"
+            tag: "span"
+            value_from: "self"
+            index: 2
+            find_value: ["innerHTML"]
+      
+    date_of_birth:
+      parent:
+        tag: "div"
+        class: "poetProfileDesc"
+        value_from:
+          type: "child"
+          tag: "p"
+          index: 2
+          value_from:
+            type: "child"
+            tag: "span"
+            index: 2
+            value_from:
+              type: "child"
+              tag: "bdi"
+              id: "poetDOB"
+              value_from: "self"
+              find_value: ["innerHTML"]
+
+    died:
+      parent:
+        tag: "div"
+        class: "poetProfileDesc"
+        value_from:
+          type: "child"
+          tag: "p"
+          index: 3
+          value_from:
+            type: "child"
+            tag: "span"
+            index: 2
+            value_from:
+              type: "child"
+              tag: "bdi"
+              id: "poetDOD"
+              value_from: "self"
+              find_value: ["innerHTML"]
+
+  ghazals_titles:
+    ghazals:
+      parent:
+        tag: "div"
+        css_class: ".contentListBody.contentLoadMoreSection.rt_miriyaatSec.rt_manageColumn"
+        class: "contentListBody contentLoadMoreSection rt_miriyaatSec rt_manageColumn"
+        css_selector: "yes"
+        all_children: "yes"
+        value_from: 
+          type: "child"
+          tag: "div"
+          class: "contentListItems"
+          value_from:
+            type: "child"
+            tag: "a"
+            index: 2
+            find_value: ["title", "href"]
+            value_from: "self"
+
+  ghazals:
+    ghazals:
+      parent:
+        tag: "div"
+        class: "pMC"
+        all_children: "yes"
+        value_from:
+          type: "child"
+          tag: "div"
+          class: "w"
+          value_from:
+            class: "c"
+            type: "child"
+            tag: "div"
+            all_children: "yes"
+            value_from:
+              type: "child"
+              tag: "p"
+              all_children: "yes"
+              value_from:
+                type: "child"
+                tag: "span"
+                find_value: ["innerHTML"]
+                value_from: "self"
